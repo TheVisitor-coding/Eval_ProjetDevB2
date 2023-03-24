@@ -1,6 +1,7 @@
 body{
-  background-color: cornsilk;
-}
+  background-color: #f2f2f2;
+  }
+  
 .header{
   display : flex;
   flex-direction: row;
@@ -51,4 +52,5 @@ body{
 .header .header-right button:hover::after {
   width: 50%;
 }
+
 

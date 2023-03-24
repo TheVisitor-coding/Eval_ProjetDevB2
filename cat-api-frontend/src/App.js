@@ -3,6 +3,7 @@ import axios from 'axios'
 import CatImg from './component/HeaderCat'
 import ContentCat from './component/HeaderContentCat'
 import './App.css'
+import Footer from './component/Footer'
 
 function Cat () {
   // let compteur = 0
@@ -25,9 +26,21 @@ function Cat () {
     loadData()
   }, [])
 
-  // const handleRefresh = () => {
-  //   useEffect()
-  // }
+  const handleRefresh = () => {
+    const loadData = async () => {
+      const response = await axios.get(`https://api.thecatapi.com/v1/images/search?has_breeds=1&api_key=live_mtl9hrEB87yKSbY11iXEkgFZtnsMeZtj2VhYQIJkQNOnRwIJkMleFZlmgHLyDF7p`)
+      if (response.status === 200) {
+        const data_img = response.data[0]
+        const data = response.data[0].breeds[0]
+
+        console.log(data_img)
+
+        setCat_img(data_img)
+        setCat(data)
+      }
+    }
+    loadData()
+  }
 
   return cat_img &&(
     <>
@@ -39,8 +52,12 @@ function Cat () {
         <div className='header-right'>
           <ContentCat cat={cat} />
           <br/>
-          <button>DO YOU WANT A NEW CAT ??</button>
+          <button onClick={handleRefresh}>DO YOU WANT A NEW CAT ??</button>
         </div>
+      </div>
+
+      <div className='footer'>
+        <Footer cat={cat} />
       </div>
     </>
   )

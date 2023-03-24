@@ -1,3 +1,10 @@
+.header-content{
+  background-color: #eeeded;
+  border : 0px solid #767676;
+  border-radius: 10px;
+  padding : 15px 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 5px 8px 0px;
+}
 .header-content .content{
   max-width : 800px;
 }
