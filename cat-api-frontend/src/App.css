@@ -5,7 +5,6 @@ body{
 .header{
   display : flex;
   flex-direction: row;
-  /* justify-content:space-around; */
   flex-wrap: wrap;
   align-items: center;
   padding-top : 3rem;
@@ -16,41 +15,55 @@ body{
 
 .header .header-right button{
   padding: 15px 30px;
-    background-color: rgb(32, 143, 32);
-    color : white;
-    border: none;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-    font-weight: bold;
-    position: relative;
-    text-transform: uppercase;
-    transition: all 200ms ease-in-out;
-    cursor: pointer;
+  background-color: rgb(32, 143, 32);
+  color : white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  font-weight: bold;
+  font-size: 1rem;
+  position: relative;
+  text-transform: uppercase;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;  
+}
+.header .header-right button:hover{
+  background-color: darkslategray;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px;
+  transform: translateY(-2px);
+  color: #f0f0f0;
+}
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position :absolute;
+  top : 0;
+  left : 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index : 9999;
 }
 
-
-.header .header-right button::before,
-.header .header-right button::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -2px;
-  background-color:  rgb(10, 10, 10);
-  transition: width 0.3s ease-in-out;
+.loader::after{
+  content : "";
+  display: block;
+  width : 60px;
+  height : 60px;
+  margin : 0 auto;
+  border-radius: 50%;
+  border : 6px solid rgba(255, 255, 255, 0.6);
+  border-top-color: #27ae60;
+  animation : loader-rotate 1s linear infinite;
 }
 
-.header .header-right button::before {
-  left: 0;
+@keyframes loader-rotate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
 }
-
-.header .header-right button::after {
-  right: 0;
-}
-
-.header .header-right button:hover::before,
-.header .header-right button:hover::after {
-  width: 50%;
-}
-
 

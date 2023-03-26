@@ -5,6 +5,7 @@ function CatImg ({cat_img}) {
 
   const [bounds, setBounds] = useState(null)
 
+  // Fonction qui permet de faire tourner l'image de chat en fonction de la position de la souris
   useEffect(() => {
     const $card = document.querySelector('.image-cat img')
     function rotateToMouse (e) {
